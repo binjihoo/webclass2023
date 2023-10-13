@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="myh1"> 이것은 제목 태그입니다.</h1>
+    <button id="bg"> 바탕색 바꾸기</button>
+    <script>
+        const h1 = document.getElementsByTagName("h1")
+        console.log(h1)
+        h1[0].style.color="blue"
+        h1[0].innerText="이것은 자바스크립트로 만든 제목입니다."
+
+        const h2 = document.createElement("h2")
+        h2.innerText = "이것은 자바스크립트로 생선된 요소입니다."
+        h2.style.backgroundColor = "yellow"
+        
+        document.body.appendChild(h2)
+
+
+        const a = document.createElement("a")
+        a.href = "http://www.naver.com"
+        a.innerText = "네이버로"
+        document.body.appendChild(a)
+
+
+        const myh1 = document.getElementById("myh1")
+        // myh1.remove() # 자기 자신 삭제 
+        document.body.removeChild(myh1) //부모노드가 자식노드를 삭제하기
+
+        const btn = document.getElementById("bg")
+        btn.addEventListener('click', function(){
+            document.body.style.backgroundColor = 'green'
+        })
+    </script>
+</body>
+</html>

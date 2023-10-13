@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: 'Orbit-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/Orbit-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body{
+            font-family: 'Orbit-Regular';
+        }
+    </style>
+</head>
+
+
+<body>
+    
+
+    <div id="container">
+        <div id="contents">
+            <span>나는</span>
+            <span id="element"></span>
+            
+        </div>
+    </div>
+
+  <!-- Load library from the CDN -->
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+  <!-- Setup and start animation! -->
+  <script>
+    var typed = new Typed('#element', {
+      strings: ['학생이다.','집에 가고싶다.','매우 집에 가고싶다','진짜 아주 굉장히 집에 가고싶다'],
+      typeSpeed: 50,
+      loop: true,
+    });
+  </script>
+</body>
+    
+</body>
+</html>

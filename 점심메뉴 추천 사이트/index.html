@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>점심메뉴 추천 사이트</title>
+    <!-- CSS 파일 연결 -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    
+    <div id="container">
+        <!-- 이름을 물어보는 모달창 만들기-->
+        <div id="name-modal">
+            <h3>이름을 입력해주세요</h3>
+            <input type="text" name="" id="username">
+            <input type="button" value="확인" onclick="getUsername()">
+        </div>
+
+        <!--세부 컨텐츠(인사말, 포춘 쿠키 이미지, 운세 결과)-->
+        <div id="contents" class="hide">
+            <!--인사말 만들기-->
+            <div class="greeting">
+                <h2><span id="name"></span>님 환영합니다.</h2>
+                <h2>오늘의 점심메뉴를 확인하기 위해 버튼을 클릭해 주세요.</h2>
+            </div>
+            <!--포춘쿠키 운세 결과 보여주기-->
+            <div id="result-message">결과 메세지 창입니다.</div>
+            <div id="menubtn">
+                <img src="./button.png" width="100px" height="100px" onclick="selectMenu()">
+            </div>
+       
+            </div>
+        </div>
+    </div>
+    <!--자바스크립트 코드-->
+    <script>
+        function getUsername() {
+            const input = document.getElementById('username')
+            console.log(input.value) //input text 요소에 작성한 이름 가져오기
+            const username = input.value
+            if(username.length == 0) {
+                window.alert('이름을 입력해주세요.')
+            } else {
+                const span = document.getElementById("name")
+                span.innerText = username
+                const modal = document.getElementById("name-modal")
+                const contents = document.getElementById("contents")
+                modal.classList.add('hide')
+                contents.classList.remove('hide')
+
+            }
+        }
+        const selected = [false, false, false]
+        function selectMenu() {
+            showMessage()
+        }
+        
+
+        const messages = [
+            '선택의 길에 있을 떄, 이번에는 내가 평소 선택하지 않았을 것을 선택해 보라. 엄청난 행운이 기다리고 있으니.',
+            '엄청난 고민이 찾아온다. 그러나 너가 최고의 선택을 할 예정. 걱정마라. 대신 기대하라.',
+            '내가 잠시 후회했던 선택이 갑자기 엄청난 멋진 결과를 낳는다.',
+            '너에게 얼마나 멋진 일이 벌어지는지 여기에 다 설명할 수가 없다. 기대하라.',
+            '그 동안 망설였던 걸, 바로 해볼 것. 망설인 시간 만큼이나 내가 전혀 생각하지 못한 놀라운 결과를 만날 것이다.',
+            '보기만 해도 웃음이 터지는 너무 재미있는 친구를 새로 만나게 된다',
+            '나를 항상 자기 일처럼 나서서 도와주는 정말 고마운 친구가 나타난다.',
+            '내 주변의 모든 걸 자세히 살펴보라. 지금도 반짝이는 행운이 바로 곁에 숨어있다.',
+            '내 인생에서 잊지 못할, 언제나 나를 행복하게 해주는 평생 최고의 노래를 만나게 된다.'
+        ]
+        function showMessage(){
+            const result = document.getElementById("result-message")
+            let idx =  getRandomInt(0,messages.length)
+            result.innerText = messages[idx]
+        }
+
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min)) + min; //최댓값은 제외, 최솟값은 포함
+        }
+
+
+    </script>
+</body>
+</html>
